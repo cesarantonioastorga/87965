@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+}
+
+.hamburguesa{
+    color: white;
+    font-size: 30px;
+    display: none;
+}
+
+header{
+   background-color: rgb(0, 0, 0); 
+/*     display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    padding: 10px 30px;
+
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+}
+
+header nav ul{
+    display: flex;
+    column-gap: 10px;
+    list-style: none;
+}
+
+header nav ul li.submenu{
+    position: relative;
+}
+
+header nav ul li.submenu ul{
+    display: none;
+    background: black;
+    position: absolute;
+    padding: 10px;
+    top: 20px;
+    left: -10px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px black;
+}
+
+header nav ul li.submenu ul li{
+    padding: 5px 0;
+}
+
+header nav ul li.submenu:hover ul{
+    display: block;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+
+main .grilla{
+    display: grid;
+    height: 100vh;
+    grid-template-columns:  repeat(3, 250px);
+    grid-template-rows: repeat(2, 165px);
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+
+main .grilla div img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+main .grilla div{
+    position: relative;
+}
+
+main .grilla div:hover::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.728);
+}
+
+
+
+main .grilla div p{
+    width: 70%;
+    color: white;
+    position: absolute;
+    top: calc(50% - 38px);
+    left: calc(50% - 87px);
+    z-index: 1;
+    opacity: 0;
+}
+
+main .grilla div:hover p{
+    opacity: 1;
+}
+
+
+
+/*1200*/
+
+/* 768px a 991px*/
+@media (max-width: 991px){
+    .hamburguesa{
+        display: block;
+    }
+    .menu{
+        display: none;
+    }
+    main .grilla{
+        grid-template-columns:  repeat(2, 250px);
+        grid-template-rows: repeat(3, 165px);
+    }
+
+}
+
+
+/*360px a 480px*/
+@media (max-width: 480px){
+    main .grilla{
+        margin: 50px 0;
+        grid-template-columns:  repeat(1, 250px);
+        grid-template-rows: repeat(6, 165px);
+        height: 100%;
+    }
+}
+
